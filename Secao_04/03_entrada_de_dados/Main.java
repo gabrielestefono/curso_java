@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-class Main{
-	public static void main(String[] args){
+class Main {
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String x;
 		System.out.print("Qual o seu nome? ");
@@ -16,11 +16,11 @@ class Main{
 		char k;
 		System.out.print("Qual seu sexo? M ou F ");
 		k = sc.next().charAt(0);
-		if(k == 'F'){
+		if (k == 'F') {
 			System.out.print("Legal, entao voce e Mulher!");
-		}else if(k == 'M'){
+		} else if (k == 'M') {
 			System.out.print("Legal, entao voce e homem!");
-		}else{
+		} else {
 			System.out.print("Não sei o que isso significa");
 		}
 		sc.close();
