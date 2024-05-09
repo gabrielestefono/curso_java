@@ -9,5 +9,6 @@ public class Program {
         product.name = "TV";
         product.price = 700;
         product.quantity = 50;
+        System.out.println(product.toString());
     }
 }
