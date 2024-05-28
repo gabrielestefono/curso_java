@@ -1,5 +1,7 @@
+package programa;
+
 import java.util.Scanner;
-import programa.Conversor;
+import programa.conversor.Conversor;
 
 public class App{
   public static void main(String[] args){

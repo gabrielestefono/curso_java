@@ -1,4 +1,4 @@
-package programa;
+package programa.conversor;
 
 import java.util.Scanner;
 
@@ -6,7 +6,6 @@ public class Conversor {
   private static final String FAHRENHEIT = "Fahrenheit";
   private static final String KELVIN = "Kelvin";
   private static final String CELCIUS = "Celcius";
-	private static final String RESULTADO = "O resultado é de ";
 
   public Conversor(){
     // Empty Constructor
@@ -14,6 +13,21 @@ public class Conversor {
 
   public void mostrarMensagem(String mensagem){
     System.out.println(mensagem);
+  }
+
+  public void mostrarSaida(
+    double valorEntrada,String unidadeMedidaEntrada, String unidadeMedidaSaida, String resultado
+    ){
+    this.mostrarMensagem(
+      "O resultado é de "
+        + valorEntrada
+        + " graus em "
+        + unidadeMedidaEntrada
+        + " é: "
+        + resultado
+        + " "
+        + unidadeMedidaSaida
+    );
   }
 
   public void mostrarPrimeiroConsole(Scanner sc){
@@ -32,45 +46,45 @@ public class Conversor {
     switch(operacao) {
       case "11" -> {
         temperatura = this.mostrarSegundoConsole(sc, FAHRENHEIT);
-        this.mostrarMensagem(String.valueOf(temperatura));
+        this.mostrarSaida(temperatura, FAHRENHEIT, FAHRENHEIT, String.valueOf(temperatura));
       }
       case "12" -> {
         temperatura = this.mostrarSegundoConsole(sc, FAHRENHEIT);
         String resultado = this.fahrenheitToKelvin(temperatura);
-        this.mostrarMensagem(RESULTADO + entrada + " graus em " + FAHRENHEIT + " é: " + resultado + KELVIN);
+        this.mostrarSaida(temperatura, FAHRENHEIT, KELVIN, resultado);
       }
       case "13" -> {
         temperatura = this.mostrarSegundoConsole(sc, FAHRENHEIT);
         String resultado = this.fahrenheitToCelcius(temperatura);
-        this.mostrarMensagem(RESULTADO + entrada + " graus em " + FAHRENHEIT + " é: " + resultado + CELCIUS);
+        this.mostrarSaida(temperatura, FAHRENHEIT, CELCIUS, resultado);
       }
       case "21" -> {
         temperatura = this.mostrarSegundoConsole(sc, KELVIN);
         String resultado = this.kelvinToFahrenheit(temperatura);
-        this.mostrarMensagem(RESULTADO + entrada + " graus em " + KELVIN + " é: " + resultado + FAHRENHEIT);
+        this.mostrarSaida(temperatura, KELVIN, FAHRENHEIT, resultado);
       }
       case "22" -> {
         temperatura = this.mostrarSegundoConsole(sc, KELVIN);
-        this.mostrarMensagem(String.valueOf(temperatura));
+        this.mostrarSaida(temperatura, KELVIN, KELVIN, String.valueOf(temperatura));
       }
       case "23" -> {
         temperatura = this.mostrarSegundoConsole(sc, KELVIN);
         String resultado = this.kelvinToCelcius(temperatura);
-        this.mostrarMensagem(RESULTADO + entrada + " graus em " + KELVIN + " é: " + resultado + CELCIUS);
+        this.mostrarSaida(temperatura, KELVIN, CELCIUS, resultado);
       }
       case "31" -> {
         temperatura = this.mostrarSegundoConsole(sc, CELCIUS);
         String resultado = this.celciusToFahrenheit(temperatura);
-        this.mostrarMensagem(RESULTADO + entrada + " graus em " + CELCIUS + " é: " + resultado + FAHRENHEIT);
+        this.mostrarSaida(temperatura, CELCIUS, FAHRENHEIT, resultado);
       }
       case "32" -> {
         temperatura = this.mostrarSegundoConsole(sc, CELCIUS);
         String resultado = this.celciusToKelvin(temperatura);
-        this.mostrarMensagem(RESULTADO + entrada + " graus em " + CELCIUS + " é: " + resultado + KELVIN);
+        this.mostrarSaida(temperatura, CELCIUS, KELVIN, resultado);
       }
       case "33" -> {
         temperatura = this.mostrarSegundoConsole(sc, CELCIUS);
-        this.mostrarMensagem(String.valueOf(temperatura));
+        this.mostrarSaida(temperatura, CELCIUS, CELCIUS, String.valueOf(temperatura));
       }
       default -> {
         this.mostrarMensagem("Valores errados, por favor, tente novamente!");
